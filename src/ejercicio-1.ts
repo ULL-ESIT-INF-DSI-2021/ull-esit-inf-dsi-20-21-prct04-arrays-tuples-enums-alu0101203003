@@ -1,12 +1,12 @@
 /**
- * Funcion de prueba
- * @param s Cadena de entrada
- * @returns Devuelve la cadena
+ * Decodificación Resistencias
+ * @param s Array de colores
+ * @returns Devuelve el código
  * ```ts
- * prueba(prueba)
+ * decodeResistor (s :string[])
  * ```
  */
-export function prueba (s :string){
-    return s;
+
+export function decodeResistor (s :string[]){
+
 }
-console.log(prueba("prueba"));

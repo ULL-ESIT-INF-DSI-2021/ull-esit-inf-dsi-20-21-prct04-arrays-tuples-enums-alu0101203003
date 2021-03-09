@@ -1,13 +1,16 @@
 import 'mocha';
 import {expect} from 'chai';
-import {prueba} from '../src/ejercicio-1';
+import {decodeResistor} from '../src/ejercicio-1';
 
-describe('prueba function tests', () => {
-    it('prueba("prueba") returns "prueba"', () => {
-      expect(prueba("prueba")).to.be.equal("prueba");
+describe('Ejercicio 1', () => {
+    it('decodeResistor(["Marron","Verde"]) returns value 15', () => {
+      expect(decodeResistor(["Marron","Verde"])).to.be.equal(15);
     });
 
-    it('prueba("hola") returns "hola"', () => {
-        expect(prueba("hola")).to.be.equal("hola");
-      });
+    it('decodeResistor(["Marron","Verde","Violeta"]) returns value 15', () => {
+      expect(decodeResistor(["Marron","Verde","Violeta"])).to.be.equal(15);
+    });
+    it('decodeResistor(["Rojo","Negro"]) returns value 20', () => {
+      expect(decodeResistor(["Rojo","Negro"])).to.be.equal(20);
+    });
 });
