@@ -1,16 +1,13 @@
 import 'mocha';
 import {expect} from 'chai';
-import {decodeResistor} from '../src/ejercicio-1';
+import {meshArray} from '../src/ejercicio-2';
 
 describe('Ejercicio 1', () => {
-    it('decodeResistor(["Marron","Verde"]) returns value 15', () => {
-      expect(decodeResistor(["Marron","Verde"])).to.be.equal('15');
+    it('meshArray(["allow", "lowering", "ringmaster", "terror"]) returns "lowringter"', () => {
+      expect(meshArray(["allow", "lowering", "ringmaster", "terror"])).to.be.equal("lowringter");
     });
 
-    it('decodeResistor(["Marron","Verde","Violeta"]) returns value 15', () => {
-      expect(decodeResistor(["Marron","Verde","Violeta"])).to.be.equal('15');
-    });
-    it('decodeResistor(["Rojo","Negro"]) returns value 20', () => {
-      expect(decodeResistor(["Rojo","Negro"])).to.be.equal('20');
-    });
+    it('meshArray(["kingdom", "dominator", "notorious", "usual", "allegory"]) returns "Error al encadenar"', () => {
+      expect(meshArray(["kingdom", "dominator", "notorious", "usual", "allegory"])).to.be.equal("Error al encadenar");
+    })
 });
