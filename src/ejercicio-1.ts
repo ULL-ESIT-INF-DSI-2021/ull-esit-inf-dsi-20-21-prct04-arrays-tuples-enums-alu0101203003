@@ -3,7 +3,7 @@
  * @param resistor Array de colores
  * @returns Devuelve el código
  * ```ts
- * decodeResistor (s :string[])
+ * decodeResistor (resistor :string[])
  * ```
  */
 
