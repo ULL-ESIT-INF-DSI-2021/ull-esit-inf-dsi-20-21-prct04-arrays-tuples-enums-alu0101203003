@@ -3,10 +3,10 @@
  * @param resistor Array de colores
  * @returns Devuelve el código
  * ```ts
- * decodeResistor (s :string[])
+ * decodeResistor (resistor :string[])
  * ```
  */
-function decodeResistor(resistor) {
+export function decodeResistor(resistor) {
     let tupla_code = [["Negro", 0], ["Marron", 1], ["Rojo", 2], ["Naranja", 3], ["Amarillo", 4], ["Verde", 5], ["Azul", 6], ["Violeta", 7], ["Gris", 8], ["Blanco", 9]];
     var code = "";
     var i = 0;
