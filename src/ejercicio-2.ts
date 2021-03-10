@@ -1,6 +1,6 @@
 /**
  * Palabras encadenadas
- * @param palabras Array de colores
+ * @param palabras Array de palabras encadenadas
  * @returns Devuelve las letras que encadenan
  * ```ts
  * meshArray (palabras :string[])
