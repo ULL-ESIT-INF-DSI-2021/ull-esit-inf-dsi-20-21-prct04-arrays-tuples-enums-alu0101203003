@@ -3,7 +3,7 @@
  * @param array array de numeros
  * @returns Devuelve el vector reordenado con los ceros al final
  * ```ts
- * function moveZeros (array :number[])
+ * moveZeros (array :number[])
  * ```
  */
 
