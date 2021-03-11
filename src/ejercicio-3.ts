@@ -1,7 +1,7 @@
 /**
  * Calcular sum y concatenar cadenas
  * @param array Conjunto de letras y numeros
- * @returns Devuelve las letras que encadenan
+ * @returns Devuelve la media de los numeros y las letras encadenadas
  * ```ts
  * meanAndConcatenate (palabras :string[])
  * ```
