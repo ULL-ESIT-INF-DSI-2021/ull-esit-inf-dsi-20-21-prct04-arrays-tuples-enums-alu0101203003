@@ -9,7 +9,7 @@ type punto = [number, number]
  * suma (P1 :punto,P2 :punto)
  * ```
  */
-function suma (P1 :punto,P2 :punto) {
+export function suma (P1 :punto,P2 :punto) {
     var resultado :punto = [P1[0]+P2[0],P1[1]+P2[1]]
     return resultado
 }
@@ -23,7 +23,7 @@ function suma (P1 :punto,P2 :punto) {
  * resta (P1 :punto,P2 :punto)
  * ```
  */
-function resta (P1 :punto,P2 :punto){
+export function resta (P1 :punto,P2 :punto){
     var resultado :punto = [P1[0]-P2[0],P1[1]-P2[1]]
     return resultado
 }
@@ -37,7 +37,7 @@ function resta (P1 :punto,P2 :punto){
  * producto (P :punto,valor :number)
  * ```
  */
-function producto (P :punto,valor :number){
+export function producto (P :punto,valor :number){
     var resultado :punto = [P[0]*valor,P[1]*valor]
     return resultado
 }
@@ -51,7 +51,7 @@ function producto (P :punto,valor :number){
  * distEuclidea (P1 :punto,P2 :punto)
  * ```
  */
-function distEuclidea (P1 :punto,P2 :punto){
+export function distEuclidea (P1 :punto,P2 :punto){
     var resultado :number = Math.sqrt( Math.pow((P2[0]-P1[0]),2) +  Math.pow((P2[1]-P1[1]),2))
     return resultado
 }
