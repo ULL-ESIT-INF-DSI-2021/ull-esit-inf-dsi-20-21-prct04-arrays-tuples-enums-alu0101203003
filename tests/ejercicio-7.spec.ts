@@ -5,7 +5,7 @@ import {resta} from '../src/ejercicio-7';
 import {producto} from '../src/ejercicio-7';
 import {distEuclidea} from '../src/ejercicio-7';
 
-describe('Ejercicio 6', () => {
+describe('Ejercicio 7', () => {
     it('suma([1,4,3],[-3,6,1]) returns [-2,10]', () => {
       expect(suma([1,4,3],[-3,6,1])).to.be.deep.equal([-2,10,4]);
     });
