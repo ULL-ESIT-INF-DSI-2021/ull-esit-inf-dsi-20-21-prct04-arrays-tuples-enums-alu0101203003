@@ -24,7 +24,7 @@ Con el fin de preparar una estructura adecuada para realizar para nuestro proyec
 
 En adición a lo anterior, instalaremos en nuestro proyecto otros servicios que nos serán de utilidad (que se explicarán en los siguientes puntos), por lo que la estructura quedará un poco diferente:
 
-<img src="img/Captura1a.JPG" alt="" height="250"/> <img src="img/Captura1b.JPG" alt="" height="250"/> <img src="img/Captura1c.JPG" alt="" height="250"/>
+<img src="img/Captura1a.PNG" alt="" height="250"/> <img src="img/Captura1b.PNG" alt="" height="250"/> <img src="img/Captura1c.PNG" alt="" height="250"/>
 
 
 
@@ -34,4 +34,4 @@ Instalaremos el servicio de [TypeDoc](https://typedoc.org/ ) que nos ayudará a 
 
 Añadiremos la linea `"doc": "typedoc"` al package.json para poder usar la herramienta, especificaremos la rutas de los ejercicios que queremos documentar al ejecutar el comando `npm run doc`. Podremos ver la documentación generada gracias a la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer):
 
-<img src="img/Captura1.JPG" alt="" height="250"/> <img src="img/Captura2.JPG" alt="" height="250"/> <img src="img/Captura3.JPG" alt="" height="250"/>
+<img src="img/Captura1.PNG" alt="" height="250"/> <img src="img/Captura2.PNG" alt="" height="250"/> <img src="img/Captura3.PNG" alt="" height="250"/>
