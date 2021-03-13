@@ -37,7 +37,7 @@ Añadiremos la linea `"doc": "typedoc"` al package.json para poder usar la herra
 
 #### 1.3. Instalación y configuración de Mocha
 
-De esta práctica en adelante usaremos la metodología TDD de desarrollo de pruebas unitarias, para lo que nos ayudaremos de las herramientas [Mocha]( https://mochajs.org/) y [Chai](https://www.chaijs.com/).
+De esta práctica en adelante usaremos la metodología TDD de desarrollo de pruebas unitarias, para lo que nos ayudaremos de las herramientas [Mocha]( https://mochajs.org/) y [Chai](https://www.chaijs.com/). También serán instalados usando la [guía proporcionada](https://campusingenieriaytecnologia.ull.es/mod/url/view.php?id=288629) en forma de video en el campus virtual.
 
 Los pasos que llevaremos a cabo para el desarrollo de estas pruebas serán:
 
@@ -120,6 +120,7 @@ export function decodeResistor (resistor :string[]){
 
 }
 ```
+<img src="img/1.PNG" alt="" />
 
 
 #### 1.2 Ejercicio 2
@@ -206,6 +207,7 @@ export function meshArray (palabras :string[]){
 }
 
 ```
+<img src="img/2.PNG" alt="" />
 
 #### 1.3 Ejercicio 3
 
@@ -251,6 +253,7 @@ export function meanAndConcatenate (array :(string|number)[]){
 }
 
 ```
+<img src="img/3.PNG" alt="" />
 
 #### 1.4 Ejercicio 4
 
@@ -291,6 +294,7 @@ export function moveZeros (array :number[]){
 }
 
 ```
+<img src="img/4.PNG" alt="" />
 
 
 #### 1.5 Ejercicio 5
@@ -329,6 +333,7 @@ export function multiplyAll(array :number[]){
     }
 }
 ```
+<img src="img/5.PNG" alt="" />
 
 
 #### 1.6 Ejercicio 6
@@ -416,28 +421,180 @@ export function distEuclidea (P1 :punto,P2 :punto){
 }
 ```
 
+<img src="img/6.PNG" alt="" />
 
 
 #### 1.7 Ejercicio 7
 
 **Enunciado:**
 
-
+A partir del desarrollo realizado para el ejericio anterior, cree un tipo de datos que sea capaz de definir puntos de 3 o más dimensiones. Esto es, un punto debe tener, como mínimo, tres dimensiones y, como máximo, las que el usuario desee. Además, desarrolle las mismas funciones que en el ejercicio anterior, de modo que puedan operar sobre puntos n-dimensionales. Tenga en cuenta que no se pueden operar los puntos definidos en diferentes sistemas de coordenadas. Es decir, no podemos sumar un punto de tres dimensiones y un punto de cinco dimensiones.
 
 **Resolución:**
 
+Para crear un tipo de dato con 3 o más componentes usaremos el siguiente formato `type punto = [number, number, number, ...number[]]`.
+
+Implementaremos las funciones de la misma manera con las siguientes salvedades:
+
+* Debemos declarar el resultado como un punto vacío de, al menos, 3 componentes (`var resultado :punto = [0,0,0]`)
+* Debemos tener en cuenta, para las operaciones de 2 puntos, que no pueden tener distinto numero de componentes:
 ```ts
+ if (P1.length != P2.length){
+        return "Error. Puntos con distinto numero de coordenadas"
+    }
 ```
+* Aplicaremos las operaciones coordenda a coordenada recorriendo los 2 puntos:
+```ts
+for(var i:number = 0; i < P1.length; i++)
+```
+
+```ts
+/**
+ * Sumar dos puntos coordenada a coordenada
+ * @param P1 punto 1
+ * @param P2 punto 2
+ * @returns Devuelve la suma
+ * ```ts
+ * suma (P1 :punto,P2 :punto)
+ * ```
+ */
+export function suma (P1 :punto,P2 :punto) {
+    var resultado :punto = [0,0,0]
+    if (P1.length != P2.length){
+        return "Error. Puntos con distinto numero de coordenadas"
+    } else {
+        for(var i:number = 0; i < P1.length; i++){
+            resultado[i] = P1[i] + P2[i];
+        }
+    }
+    return resultado
+}
+
+/**
+ * Restar dos puntos coordenada a coordenada
+ * @param P1 punto 1
+ * @param P2 punto 2
+ * @returns Devuelve la resta
+ * ```ts
+ * resta (P1 :punto,P2 :punto)
+ * ```
+ */
+ export function resta (P1 :punto,P2 :punto){
+    var resultado :punto = [0,0,0]
+    if (P1.length != P2.length){
+        return "Error. Puntos con distinto numero de coordenadas"
+    } else {
+        for(var i:number = 0; i < P1.length; i++){
+            resultado[i] = P1[i] - P2[i];
+        }
+    }
+    return resultado
+}
+
+/**
+ * Calcular el producto de un punto por un número
+ * @param P1 punto 1
+ * @param valor factor a multiplicar
+ * @returns Devuelve el producto
+ * ```ts
+ * producto (P :punto,valor :number)
+ * ```
+ */
+ export function producto (P :punto,valor :number){
+    var resultado :punto = [0,0,0]
+    for(var i:number = 0; i < P.length; i++){
+        resultado[i] = P[i] * valor
+    }
+    return resultado
+}
+
+/**
+ * Calcular la distancia euclídea entre dos puntos
+ * @param P1 punto 1
+ * @param P2 punto 2
+ * @returns Devuelve la distancia
+ * ```ts
+ * distEuclidea (P1 :punto,P2 :punto)
+ * ```
+ */
+ export function distEuclidea (P1 :punto,P2 :punto){
+    if (P1.length != P2.length){
+        return "Error. Puntos con distinto numero de coordenadas"
+    } else {
+        var sum :number = 0;
+        for(var i:number = 0; i < P1.length; i++){
+            sum = sum + Math.pow((P2[i]-P1[i]),2)
+        }
+        var resultado :number = Math.sqrt(sum)
+    }
+    return resultado
+}
+```
+<img src="img/7.PNG" alt="" />
 
 
 #### 1.8 Ejercicio 8
 
 **Enunciado:**
 
+A partir de un tablero bidimensional con tamaño [X, Y], donde X es el número de filas e Y el número de columnas. Considere que un agente está situado en un punto del tablero con coordenadas $(x_0, y_0)$ y tiene que llegar a un objetivo $(x_1, y_1)$. Para lograrlo, el agente solo puede realizar movimientos en los puntos cardinales, esto es, Norte, Sur, Este y Oeste. Tenga en cuenta que los movimientos positivos en el eje Y serán hacia el Este y los negativos hacia el Oeste. Del mismo modo, los movimientos positivos en el eje X serán hacia el Norte y los negativos hacia el Sur.
 
+Para resolver este ejercicio se solicita lo siguiente:
+
+* Cree el tipo de dato más adecuado para representar los puntos cardinales.
+* Cree una función que reciba como parámetros las dimensiones del mapa, el punto de origen y el punto de destino del agente. Esta función calculará la ruta necesaria para llegar a dicho punto usando únicamente los movimientos permitidos (no se permiten movimientos en diagonal). El resultado de la función deberá ser un array que incluya todos los pasos que tiene que realizar el agente para llegar a su destino.
 
 **Resolución:**
 
+Para poder representar y manipular los puntos de inicio y final crearemos un tipo de dato "coordenada" con las mismas propiedades que el tipo "punto" del ejercicio 6 (`type coordenada = [number, number]`).
+
+A la hora de implementar la función, haremos una primera comprobación para asegurarnos de que los puntos de inicio y fin no sean colocados fuera del tablero.
+
+Después crearemos una variable agente que partirá de las coordenadas del punto inicial y (en función de si se encuentra al sur, norte, este u oeste del punto final) incrementaremos o decrementaremos sus coordenadas hasta que coincidan con el final. Cada uno de estos movimientos será registrado añadiéndolo al resultado final (por ejemplo : `resultado.push("South")`).
+
 ```ts
+export function agent(X :number, Y :number, initialPoint :coordenada, endPoint: coordenada) {
+    if ( (initialPoint[0] || endPoint[0]) > X || (initialPoint[1] || endPoint[1]) > Y ){
+        return "Error. Punto inicial o final colocado fuera del tablero"
+    }
+    var resultado :string[] = [];
+    var agente :coordenada = initialPoint
+    while ( (agente[0] != endPoint[0]) && (agente[1] != endPoint[1]) ){
+        if (agente[0] < endPoint[0]){
+            agente[0]++
+            resultado.push("South")
+        }
+        if (agente[1] < endPoint[1]){
+            agente[1]++
+            resultado.push("East")
+        }
+        if (agente[0] > endPoint[0]){
+            agente[0]--
+            resultado.push("North")
+        }
+        if (agente[1] > endPoint[1]){
+            agente[1]--
+            resultado.push("West")
+        }
+    }
+    return resultado
+}
 ```
+<img src="img/8.PNG" alt="" />
+
+### Conclusiones
+
+Esta práctica me resultó de gran utilidad para poner en práctica los conocimientos sobre los arreglos de datos dados en clase. He aprendido bastante sobre este tipo de datos y, sin duda, serán herramientas que usaré a menudo en mis siguientes proyectos de TypeScript.
+
+### Bibliografía
+
+A continuación se muestra una serie de recursos que han sido de gran utilidad para la realización de la práctica y de este informe:
+
+
+Recurso| Dirección
+-------|----------
+Guía de la práctica | https://ull-esit-inf-dsi-2021.github.io/prct04-arrays-tuples-enums/
+Apuntes | https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-arrays-tuples-enums.html
+W3schools | https://www.w3schools.com/
+
 
