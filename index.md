@@ -34,4 +34,4 @@ Instalaremos el servicio de [TypeDoc](https://typedoc.org/ ) que nos ayudará a 
 
 Añadiremos la linea `"doc": "typedoc"` al package.json para poder usar la herramienta, especificaremos la rutas de los ejercicios que queremos documentar al ejecutar el comando `npm run doc`. Podremos ver la documentación generada gracias a la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer):
 
-<img src="img/Captura1.PNG" alt="" height="250"/> <img src="img/Captura2.PNG" alt="" height="250"/> <img src="img/Captura3.PNG" alt="" height="250"/>
+<img src="img/Captura1.PNG" alt="" /> <img src="img/Captura2.PNG" alt=""/> <img src="img/Captura3.PNG" alt="" />
