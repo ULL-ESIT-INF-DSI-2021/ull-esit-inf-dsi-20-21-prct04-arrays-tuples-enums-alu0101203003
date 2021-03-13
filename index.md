@@ -46,4 +46,9 @@ Los pasos que llevaremos a cabo para el desarrollo de estas pruebas serán:
 * Implementaremos el código necesario para que funcione
 * La prueba funcionará
 
+Las pruebas se desarrollan en el directorio test y los funciones se encuentran, como de costumbre, en el directorio src, el cual aloja el código fuente.
+
+Estas pruebas se ejecutan con el comando `npm test` que mostrará si se cumplen las espectativas especificadas o donde se encuentran los errores.
+
+<img src="img/Captura7.PNG" alt="" /> <img src="img/Captura6.PNG" alt=""/> <img src="img/Captura8.PNG" alt="" />
 
