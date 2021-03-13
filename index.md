@@ -161,10 +161,10 @@ Una vez tenemos las 2 palabras evaluaremos si están encadenadas con los siguien
 
 * Cogeremos la primera letra de la segunda palabra
 * Contaremos en la primera palabra de alante hacia atrás hasta encontrar una letra que coincida con la letra anterior
-<img src="img/1a.PNG" alt="" />
+<img src="img/1a.PNG" alt=""  height="100"/>
 
 * Habiendo tenido en cuenta todos los movimientos que tuvimos que hacer hacia atrás, recorreremos hacia alante en las 2 palabras comprobando que coincidan letra a letra (aprovecharemos este paso para concatenar el resultado final)
-<img src="img/1b.PNG" alt="" />
+<img src="img/1b.PNG" alt="" height="100"/>
 
 * Si alguna letra no coincide, lo consideraremos un error.
 
