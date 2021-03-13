@@ -1,6 +1,6 @@
 type coordenada = [number, number]
 
-function agent(X :number, Y :number, initialPoint :coordenada, endPoint: coordenada) {
+export function agent(X :number, Y :number, initialPoint :coordenada, endPoint: coordenada) {
     if ( (initialPoint[0] || endPoint[0]) > X || (initialPoint[1] || endPoint[1]) > Y ){
         return "Error. Punto inicial o final colocado fuera del tablero"
     }
@@ -26,6 +26,3 @@ function agent(X :number, Y :number, initialPoint :coordenada, endPoint: coorden
     }
     return resultado
 }
-
-console.log(agent(4,4,[0,0],[3,3]))
-console.log(agent(6,5,[4,3],[1,0]))
