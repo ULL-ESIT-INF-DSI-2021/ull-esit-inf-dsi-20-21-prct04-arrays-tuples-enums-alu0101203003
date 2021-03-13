@@ -24,7 +24,7 @@ Con el fin de preparar una estructura adecuada para realizar para nuestro proyec
 
 En adición a lo anterior, instalaremos en nuestro proyecto otros servicios que nos serán de utilidad (que se explicarán en los siguientes puntos), por lo que la estructura quedará un poco diferente:
 
-<img src="img/Captura1a.PNG" alt="" height="250"/> <img src="img/Captura1b.PNG" alt="" height="250"/> <img src="img/Captura1c.PNG" alt="" height="250"/>
+<img src="img/Captura1a.PNG" alt="" height="250"/> <img src="img/Captura1b.PNG" alt="" /> <img src="img/Captura1c.PNG" alt="" />
 
 
 
