@@ -211,22 +211,85 @@ export function meshArray (palabras :string[]){
 
 **Enunciado:**
 
+Escriba una función meanAndConcatenate que reciba como parámetro un array que incluye caracteres de texto y números. La función deberá devolver como resultado un array con dos valores:
 
+* La media de los valores numéricos.
+* Una cadena resultado de la concatenación de caracteres del array recibido.
+
+Por ejemplo, para el array de entrada `['u', 6, 'd', 1, 'i', 'w', 6, 's', 't', 4, 'a', 6, 'g', 1, 2, 'w', 8, 'o', 2, 0]`, el resultado devuelto por la función sería `[3.6, "udiwstagwo"]`.
 
 **Resolución:**
 
+El tipo de dato ideal para representar el array de entrada tal y como lo pide el enunciado es una **tupla** ya que tiene elementos tanto de tipo string como number (letras y numeros). Usaremos guardianes de tipo. Recorreremos el arreglo de entrada y, si se trata de una letra, la concatenaremos al resultado (como segunda posición del resultado). Si es un número, lo añadiremos al sumatorio. Este sumatorio se dividirá entre el total de numeros del arreglo para hayar la media (que se tomará como la primera posición del resultado).
+
 ```ts
+/**
+ * Calcular sum y concatenar cadenas
+ * @param array Conjunto de letras y numeros
+ * @returns Devuelve la media de los numeros y las letras encadenadas
+ * ```ts
+ * meanAndConcatenate (palabras :string[])
+ * ```
+ */
+
+export function meanAndConcatenate (array :(string|number)[]){
+    var resultado :(string|number)[];
+    var sum :number = 0;
+    var cont :number = 0;
+    var concatenado :string = "";
+    array.forEach(element => {
+        if (typeof element === "number"){
+            sum = sum + element;
+            cont++
+        }
+        if (typeof element === "string"){
+            concatenado += element;
+        }
+    });
+    var media :number = sum/cont
+    return [media,concatenado]
+}
+
 ```
 
 #### 1.4 Ejercicio 4
 
 **Enunciado:**
 
+Dado un array de números, escriba una función moveZeros que reciba como parámetro dicho array y mueva todos los ceros presentes en el array al final del mismo. El array debe mantener el mismo orden respecto al resto de elementos.
 
+Por ejemplo, `moveZeros([1, 0, 1, 2, 0, 1, 3])` devuelve `[1, 1, 2, 1, 3, 0, 0]`.
 
 **Resolución:**
 
+Para reordenar el vector, crearemos un nuevo vector resultado donde vertiremos primero todos los números distintos de 0 (con la función `.push()`) del vector original (mientras lo vamos recorriendo) y, cada vez que encontremos un 0, lo tendremos en cuenta para añadirlos al final después de haber recorrido el vector por completo.
+
 ```ts
+/**
+ * Reordenar el vector moviendo los ceros al final
+ * @param array array de numeros
+ * @returns Devuelve el vector reordenado con los ceros al final
+ * ```ts
+ * moveZeros (array :number[])
+ * ```
+ */
+
+export function moveZeros (array :number[]){
+    var resultado :number[] =[];
+    var cont :number = 0;
+    array.forEach(element => {
+        if (element == 0){
+            cont++
+        } else {
+            resultado.push(element)
+        }
+    });
+    while (cont--){
+        resultado.push(0)
+    }
+    return resultado
+}
+
 ```
 
 
@@ -234,11 +297,37 @@ export function meshArray (palabras :string[]){
 
 **Enunciado:**
 
+Cree una función multiplyAll que tome como parámetro un array de números. Esta función deberá devolver como resultado otra función que toma como argumento un único valor numérico y devuelve un nuevo array. El array devuelto por la segunda función debe ser el resultado de la multiplicación de los números del array por el valor numérico que recibe la segunda función. Además, no se debe modificar el primer array.
+
+Ejemplo:
+
+`multiplyAll([2, 6, 8])(3) // => [6, 18, 24].`
 
 
 **Resolución:**
 
+Para usar las funciones de manera anidada implementaremos la función principal de tal manera que devuelva una función anónima que reciba el valor por el cual se debe multiplicar cada elemento del array de entrada (el cual se recorrerá haciendo dicha multiplicación en cada elemento e introduciéndolos en el arreglo resultante para así no modificar el original)
+
 ```ts
+/**
+ * Multiplica cada elemento del vector por el valor
+ * @param array array de numeros
+ * @param valor valor por el que multiplicar
+ * @returns Devuelve el vector multiplicado
+ * ```ts
+ * function multiplyAll(array :number[])
+ * ```
+ */
+
+export function multiplyAll(array :number[]){
+    return (valor :number) =>{
+        var resultado :number[] = [];
+        array.forEach(element => {
+            resultado.push(element*valor);
+        });
+        return resultado;
+    }
+}
 ```
 
 
@@ -246,11 +335,85 @@ export function meshArray (palabras :string[]){
 
 **Enunciado:**
 
+Un punto describe una posición determinada respecto a un sistema de coordenadas preestablecido. Suponiendo un sistema de dos coordenadas (x, y), un punto en el espacio se denotaría de la forma Point(X, Y). A partir de la siguiente definición, cree un tipo de dato capaz de definir un punto bidimensional.
+
+Además, defina las funciones necesarias para:
+
+* Sumar y restar dos puntos coordenada a coordenada.
+* Calcular el producto de un punto por un número.
+* Calcular la distancia euclídea entre dos puntos.
 
 
 **Resolución:**
 
+En este ejercicio crearemos un tipo de dato personalizado (el punto) que será necesario para poder implementar las funciones. Cada punto tendrá dos componentes ("coordenadas") que serán asignadas según el siguiente formato : `type punto = [number, number]` como si se tratara de un vector:
+
+Por ejemplo, el punto `[1,4]` representa un punto con coordenadas X = 1, Y = 4.
+
+Tanto la suma como la resta de dos puntos se realizarán sumando/restando coordenada a coordenada (X con X, Y con Y) y se devolverá un punto resultado de estas operaciones:
+
 ```ts
+/**
+ * Sumar dos puntos coordenada a coordenada
+ * @param P1 punto 1
+ * @param P2 punto 2
+ * @returns Devuelve la suma
+ * ```ts
+ * suma (P1 :punto,P2 :punto)
+ * ```
+ */
+export function suma (P1 :punto,P2 :punto) {
+    var resultado :punto = [P1[0]+P2[0],P1[1]+P2[1]]
+    return resultado
+}
+
+/**
+ * Restar dos puntos coordenada a coordenada
+ * @param P1 punto 1
+ * @param P2 punto 2
+ * @returns Devuelve la resta
+ * ```ts
+ * resta (P1 :punto,P2 :punto)
+ * ```
+ */
+export function resta (P1 :punto,P2 :punto){
+    var resultado :punto = [P1[0]-P2[0],P1[1]-P2[1]]
+    return resultado
+}
+```
+En el producto hay un valor que se multiplica por cada coordenada:
+
+```ts
+/**
+ * Calcular el producto de un punto por un número
+ * @param P1 punto 1
+ * @param valor factor a multiplicar
+ * @returns Devuelve el producto
+ * ```ts
+ * producto (P :punto,valor :number)
+ * ```
+ */
+export function producto (P :punto,valor :number){
+    var resultado :punto = [P[0]*valor,P[1]*valor]
+    return resultado
+}
+```
+La distancia euclideana se calcula con la raíz cuadrada de la suma de los cuadrados de las coordendas de los dos puntos restadas:
+
+```ts
+/**
+ * Calcular la distancia euclídea entre dos puntos
+ * @param P1 punto 1
+ * @param P2 punto 2
+ * @returns Devuelve la distancia
+ * ```ts
+ * distEuclidea (P1 :punto,P2 :punto)
+ * ```
+ */
+export function distEuclidea (P1 :punto,P2 :punto){
+    var resultado :number = Math.sqrt( Math.pow((P2[0]-P1[0]),2) +  Math.pow((P2[1]-P1[1]),2))
+    return resultado
+}
 ```
 
 
