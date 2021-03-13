@@ -27,7 +27,6 @@ En adición a lo anterior, instalaremos en nuestro proyecto otros servicios que 
 <img src="img/Captura1a.PNG" alt="" height="250"/> <img src="img/Captura1b.PNG" alt="" /> <img src="img/Captura1c.PNG" alt="" />
 
 
-
 #### 1.2. Instalación y configuración de TypeDoc
 
 Instalaremos el servicio de [TypeDoc](https://typedoc.org/ ) que nos ayudará a generar automáticamente la documentación de nuestro proyecto siguiendo los pasos del [tutorial disponible en el campus virtual](https://campusingenieriaytecnologia.ull.es/mod/url/view.php?id=288597).
@@ -35,3 +34,16 @@ Instalaremos el servicio de [TypeDoc](https://typedoc.org/ ) que nos ayudará a 
 Añadiremos la linea `"doc": "typedoc"` al package.json para poder usar la herramienta, especificaremos la rutas de los ejercicios que queremos documentar al ejecutar el comando `npm run doc`. Podremos ver la documentación generada gracias a la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer):
 
 <img src="img/Captura1.PNG" alt="" /> <img src="img/Captura2.PNG" alt=""/> <img src="img/Captura3.PNG" alt="" /> <img src="img/Captura5.PNG" alt="" />
+
+#### 1.3. Instalación y configuración de Mocha
+
+De esta práctica en adelante usaremos la metodología TDD de desarrollo de pruebas unitarias, para lo que nos ayudaremos de las herramientas [Mocha]( https://mochajs.org/) y [Chai](https://www.chaijs.com/).
+
+Los pasos que llevaremos a cabo para el desarrollo de estas pruebas serán:
+
+* Crear la prueba unitaria para la función
+* La prueba fallará porque la función no está implementada
+* Implementaremos el código necesario para que funcione
+* La prueba funcionará
+
+
